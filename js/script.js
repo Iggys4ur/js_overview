@@ -1,53 +1,47 @@
-
-/* variables are assigned by calling
-        var <variable-name> = <assigned value>
-*/
-
-// Javascript works with / contains a set of different value types
-// strings are wrapped as 'String' value type
-// numbers are wrapped as 'Number' value type
-
-var userInitials = 'ESD' // String
 var firstName = 'Eli';
 var lastName = 'Davenport'
-var age = 28 // Number
-var isADev = true; // Boolean
-var un = undefined; // undefined is a value type that JS will give you when there is no declared or assigned value
-var n = null; // null value
-var notANumber = NaN; // Not a Number value type is provided when JS attempts to process a mathematical equation and the result is not a valid number
-
-age ++;  // increment by 1 operator
-age += 1;  // increment by X operator
-age = age + 1;  // reassign variable to incrementing equation
-
-age --; // decrement by 1 operator
-age -= 1; // decrement by X operator
-age = age - 1 // reassign variable to decrementing equation
-
-age *= 1; // mulitplicative operator (var = var * X)
-age /= 1; // division operator (var = var / X)
-
-age + 10; // addition operator
-age - 10; // subtraction operator
-
-// Javascript is also capable of string concatenation
-var fullName = firstName + ' ' + lastName //
-
-// Javascript holds multiple values in an 'array'
+var age = 28 
 var names = ['John', 'Ann' ,'Bob', 'Frank', 'Jane', 'Jimmy', 'Billy', 'Julie']
 
-// writing to the console is done via console.log
+// Comparison Operators return a boolean evaluation of the term
+console.log(age > 30); // greater than
+console.log(age < 30); // less than
+console.log(age == 30); // equals
+console.log(age == '28'); // double equals only checks value
+console.log(age === '28'); // triple equals checks both value and type
 
-console.log(names[names.length]);
+console.log(age >= 25); // greater than or equal to
+console.log(age <= 25); // less than or equal to
 
-// numbers are written without quotes
-console.log(typeof 3)
+console.log(age != 27); // not equals checks only value
+console.log(age !== 27); // not equals checks both value and type
 
-// strings are written inside quotes
-console.log(typeof '3')
+// falsey values {0, '', null, NaN, undefined, false}
 
-console.log(userInitials); // using a variable inside your code is called a reference
+// Logical Operators return a value on either left or right of the operator
+console.log(age || 27 || names || null || -5 || undefined); // returns the first 'truthy' value or last term
+console.log(age && lastName && firstName && 0 && names); // returns the first 'falsey' value or last term
+var oldEnough = (age >= 21)
+// IF Conditionals trigger if the value passed is truthy
 
-// Javascript is capable of basic math (and more)
-console.log(5 + 5)
+if (firstName && lastName){
+    alert("Received your full name!");
+}
+else if (!firstName){
+    alert("You must provide your first name!");
+}
+else if (!lastName){
+    alert("You must provide your last name!");
+}
+else {
+    alert("You must provide your full name!");
+}
 
+if(oldEnough) {
+    console.log("Welcome!")
+    alert('Welcome ' + firstName + '!')
+}
+else {
+    console.log('Must be old enough to enter!')
+    alert('No chance...... ' + firstName)
+}
