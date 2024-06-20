@@ -10,7 +10,8 @@ let namesList = ['Jim', 'Bob', 'Pam', 'Hector', 'Nate', 'Christine', 'Emma', 'Ad
 function printNames(listOfNames) {
 
     for(nameFromList in listOfNames){
-        console.log('Index: ' + nameFromList + '\n   Name: ' + listOfNames[nameFromList])
+        console.log('Index: ' + nameFromList);
+        console.log('   Name: ' + listOfNames[nameFromList])
     }
 }
 
