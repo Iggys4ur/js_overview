@@ -1,49 +1,17 @@
-var firstName = 'Eli';
-var lastName = 'Davenport'
-var age = 28 
-var names = ['John', 'Ann' ,'Bob', 'Frank', 'Jane', 'Jimmy', 'Billy', 'Julie']
 
-// Comparison Operators return a boolean evaluation of the term
-console.log(age > 30); // greater than
-console.log(age < 30); // less than
-console.log(age == 30); // equals
-console.log(age == '28'); // double equals only checks value
-console.log(age === '28'); // triple equals checks both value and type
-console.log(age >= 25); // greater than or equal to
-console.log(age <= 25); // less than or equal to
-console.log(age != 27); // not equals checks only value
-console.log(age !== 27); // not equals checks both value and type
 
-// falsey values {0, '', null, NaN, undefined, false}
+// function myFirstFunc(){
+//  console.log('function has been called')
+// }
 
-// Logical Operators return a value on either left or right of the operator
-console.log(age || 27 || names || null || -5 || undefined); // returns the first 'truthy' value or last term
-console.log(age && lastName && firstName && 0 && names); // returns the first 'falsey' value or last term
-var oldEnough = (age >= 21); // returns true if age is equal to or greater than 21
 
-// IF Conditionals trigger if the value passed is truthy
-if (firstName && lastName){
-    alert("Received your full name!");
-    console.log("Received your full name!");
-}
-else if (!firstName){ // if firstName is not truthy
-    alert("You must provide your first name!");
-    console.log("You must provide your first name!");
-}
-else if (!lastName){ // if lastName is not truthy
-    alert("You must provide your last name!");
-    console.log("You must provide your last name!");
-}
-else { // if both firstName and LastName are not truthy
-    alert("You must provide your full name!");
-    console.log("You must provide your full name!");
+let namesList = ['Jim', 'Bob', 'Pam', 'Hector', 'Nate', 'Christine', 'Emma', 'Adam']
+
+function printNames(listOfNames) {
+
+    for(nameFromList in listOfNames){
+        console.log('Index: ' + nameFromList + '\n   Name: ' + listOfNames[nameFromList])
+    }
 }
 
-if(oldEnough) { // if oldEnough is truthy
-    console.log("Welcome!");
-    alert('Welcome ' + firstName + '!');
-}
-else { // if oldEnough is not truthy
-    console.log('Must be old enough to enter!');
-    alert('No chance...... ' + firstName);
-}
+printNames(namesList);
