@@ -1,40 +1,38 @@
-const str = 'some string';
-const num = 10;
-const bool = true;
-const arr = ['John', 'Bob', 'Steve']
+const gatherBtn = document.querySelector('#gather-btn');
 
-const data = {
+// When the page loads, show a button the user can click
+// When the button is clicked, show a prompt for first name, last name, and age
+// Store the 3 values to an object
+// Print the data object values to the browser window
 
-    name: 'Eli',
-    age: 28,
-    info: {
-        location: 'NJ',
-        hobbies: [
-            {
-                name: 'Coding',
-                frequency: 2
-            },
-            {
-                name: 'Video Games',
-                frequency: 2
-            },
-            {
-                name: 'Watching Movies',
-                frequency: 1
-            }
-        ]
+function gatherInfo() {
+    let firstName, lastName, age;
+    let ask = true;
+
+    while (ask){
+
+        
+        if(!firstName || typeof firstName !== 'string'){
+            firstName = prompt('Enter your first name')
+            continue;
+        }
+
+        if(!lastName || typeof lastName !== 'string'){
+            lastName = prompt("Enter your Last name:");
+            continue;
+        }
+
+        if(!age || typeof age !== 'number'){
+            console.log(typeof age);
+            age = prompt("Enter your Age:");
+            continue;
+        }
+
+        ask = false;
+        console.log('Name: ' + firstName + ' ' + lastName + '\n' + 'Age: ' + age)
     }
+
 }
 
-for (i=0; i < data.info.hobbies.length; i++){
-    console.log('The hobby of: "' + data.info.hobbies[i].name + '" is done at a frequency of: "' + data.info.hobbies[i].frequency + '"')
-}
+gatherBtn.addEventListener('click', gatherInfo);
 
-const filtered = data.info.hobbies.filter(function (obj) {
-    if (obj.frequency > 1){
-        return true;
-    }
-}
-)
-
-console.log(filtered)
