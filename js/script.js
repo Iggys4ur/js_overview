@@ -6,7 +6,7 @@ const gatherBtn = document.querySelector('#gather-btn');
 // Print the data object values to the browser window
 
 function gatherInfo() {
-    let firstName, lastName, age;
+    let fullName, firstName, lastName, age;
     let ask = true;
 
     while (ask){
@@ -22,14 +22,19 @@ function gatherInfo() {
             continue;
         }
 
-        if(!age || typeof age !== 'number'){
-            console.log(typeof age);
+        fullName = firstName + ' ' + lastName;
+
+        if(!age || isNaN(age)){
             age = prompt("Enter your Age:");
             continue;
         }
 
         ask = false;
-        console.log('Name: ' + firstName + ' ' + lastName + '\n' + 'Age: ' + age)
+        console.log('Name: ' + fullName
+             + '\n  First Name: ' + firstName
+             + '\n  Last Name: ' + lastName
+             + '\n  Age: ' + age)
+        console.log('________________________')
     }
 
 }
