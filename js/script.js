@@ -1,43 +1,54 @@
-const gatherBtn = document.querySelector('#gather-btn');
+// const gatherBtn = document.querySelector('#gather-btn');
 
-// When the page loads, show a button the user can click
-// When the button is clicked, show a prompt for first name, last name, and age
-// Store the 3 values to an object
-// Print the data object values to the browser window
 
-function gatherInfo() {
-    let fullName, firstName, lastName, age;
-    let ask = true;
 
-    while (ask){
+// target the form
+const noteForm = document.querySelector('#noteForm');
+// target the note header h3
+const noteHeader = document.querySelector('#noteHeader');
 
-        
-        if(!firstName || typeof firstName !== 'string'){ // Validates that firstName is assigned to a value that is a string
-            firstName = prompt('Enter your first name')
-            continue;
-        }
+// noteForm.style.background = 'red';  // DOES THIS WORK? 
 
-        if(!lastName || typeof lastName !== 'string'){ // Validates that lastName is assigned to a value that is a string
-            lastName = prompt("Enter your Last name:");
-            continue;
-        }
+function createNote(eventObj) {
+    eventObj.preventDefault();
 
-        fullName = firstName + ' ' + lastName; // once you 
+    const noteInput = document.querySelector('#note-input');
 
-        if(!age || isNaN(age)){ // Validates that age is assigned to a value that is a number 
-            age = prompt("Enter your Age:");
-            continue;
-        }
+    const noteText = noteInput.value;
 
-        ask = false;
-        console.log('Name: ' + fullName
-             + '\n  First Name: ' + firstName
-             + '\n  Last Name: ' + lastName
-             + '\n  Age: ' + age)
-        console.log('________________________')
+    const dateObj = new Date();
+
+    const month = dateObj.getMonth();
+
+    const date = dateObj.getDate();
+
+    const year = dateObj.getFullYear();
+
+    const dateStr = month + '/' + date + '/' + year;
+
+    const altDateStr = `${month}/${date}/${year}`;
+
+    console.log(noteText);
+    console.log(dateStr);
+    console.log(altDateStr);
+
+    // Note object stores the content and date of the note
+    var noteObj = {
+        note: noteText,
+        noteDate: altDateStr
     }
 
+    // Pull the old data from the database(localStorage) an empty array if no previous data has been stored
+    const notes = JSON.parse(localStorage.getItem('notes')) || [];
+
+    // push the noteBlock to the notes array
+    notes.push(noteObj);
+
+    localStorage.setItem('notes', JSON.stringify(notes));
 }
 
-gatherBtn.addEventListener('click', gatherInfo);
+// set up necessary event listeners that should listen when the page loads
 
+noteForm.addEventListener('submit', createNote);
+
+// localStorage.setItem('name', 'Eli');
