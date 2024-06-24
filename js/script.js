@@ -12,19 +12,19 @@ function gatherInfo() {
     while (ask){
 
         
-        if(!firstName || typeof firstName !== 'string'){
+        if(!firstName || typeof firstName !== 'string'){ // Validates that firstName is assigned to a value that is a string
             firstName = prompt('Enter your first name')
             continue;
         }
 
-        if(!lastName || typeof lastName !== 'string'){
+        if(!lastName || typeof lastName !== 'string'){ // Validates that lastName is assigned to a value that is a string
             lastName = prompt("Enter your Last name:");
             continue;
         }
 
-        fullName = firstName + ' ' + lastName;
+        fullName = firstName + ' ' + lastName; // once you 
 
-        if(!age || isNaN(age)){
+        if(!age || isNaN(age)){ // Validates that age is assigned to a value that is a number 
             age = prompt("Enter your Age:");
             continue;
         }
