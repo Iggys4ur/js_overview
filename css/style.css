@@ -1,0 +1,11 @@
+.bg-special {
+    background: rgb(72, 213, 213);
+}
+
+.bg-special:hover {
+    background: darkcyan;
+}
+
+.show {
+    display: initial;
+}
