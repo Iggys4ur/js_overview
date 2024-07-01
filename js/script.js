@@ -1,42 +1,29 @@
+const weatherBtn = document.querySelector('.request');
+const cityInput = document.querySelector('#userInput');
 const apiKey = '3acc16ffae9e45df92a064e41646355f';
 
-const url = `https://api.openweathermap.org/data/2.5/weather?q=atlanta&appid=${apiKey}&units=imperial`;
+console.log(cityInput.value);
 
+function outputWeather(event) {
+    event.preventDefault();
 
-// We make a fetch(server-side) request to openweathermap for current weather data
-// The url must match the server's criteria for a request
-fetch(url)
-  // The first then callback function will be put to the side until the server responds back
-  .then(function (responseObj) {
-    // Passing the parsed json promise object to the next then
-    return responseObj.json();
-  })
-  .then(function (data) {
-    // Once we have the data, we create some html utilizing that data in some way
-    const html = `
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput.value}&appid=${apiKey}&units=imperial`;
+
+    fetch(url)
+        .then(function (responseObj) {
+            return responseObj.json();
+        })
+        .then(function (data) {
+            const html = `
     <h2>Temp: ${data.main.temp}</h2>
     `;
-    // Target an existing element in the DOM
-    const outputDiv = document.querySelector('.output');
+            const outputDiv = document.querySelector('.output');
 
-    // Output our completed html into the DOM/Window
-    outputDiv.innerHTML = html;
-  })
-  .catch(function (error) {
-    console.log(error);
-  });
+            outputDiv.innerHTML = html;
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+}
 
-
-
-
-// fetch(url)
-//   .then(function (responseObj) {
-//     const dataPromise = responseObj.json();
-
-//     dataPromise.then(function (data) {
-//       console.log(data);
-//     });
-//   })
-//   .catch(function (error) {
-//     console.log(error);
-//   });
+weatherBtn.addEventListener('click', outputWeather);
