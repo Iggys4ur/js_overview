@@ -1,30 +1,42 @@
-const $saveBtn = $('#save-note');
-const $createBtn = $('#create-note');
+const apiKey = '3acc16ffae9e45df92a064e41646355f';
 
-function createNote(eventObj){
-    //eventObj.preventDefault();
-    const $titleInput = $('#title-input');
-    const $textInput = $('#text-input');
-    const $dateInput = $('#date-input');
-    const dateStr = $dateInput.val();
-    const dateTime = dayjs(dateStr);
-    const timeActual = dayjs();
+const url = `https://api.openweathermap.org/data/2.5/weather?q=atlanta&appid=${apiKey}&units=imperial`;
 
-    const test = timeActual.$d;
 
-    test.
+// We make a fetch(server-side) request to openweathermap for current weather data
+// The url must match the server's criteria for a request
+fetch(url)
+  // The first then callback function will be put to the side until the server responds back
+  .then(function (responseObj) {
+    // Passing the parsed json promise object to the next then
+    return responseObj.json();
+  })
+  .then(function (data) {
+    // Once we have the data, we create some html utilizing that data in some way
+    const html = `
+    <h2>Temp: ${data.main.temp}</h2>
+    `;
+    // Target an existing element in the DOM
+    const outputDiv = document.querySelector('.output');
 
-    console.log(timeActual);
-    console.log($titleInput.val());
-    console.log($textInput.val());
-    console.log($dateInput.val());
-    console.log(dateTime);
-    console.log(dateTime.$d);
-    console.log(timeActual);
-    console.log(timeActual.$d);
-}
+    // Output our completed html into the DOM/Window
+    outputDiv.innerHTML = html;
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
 
-$saveBtn.on('click', createNote);
-$createBtn.on('click', createNote);
 
-$('#date-input').datepicker();
+
+
+// fetch(url)
+//   .then(function (responseObj) {
+//     const dataPromise = responseObj.json();
+
+//     dataPromise.then(function (data) {
+//       console.log(data);
+//     });
+//   })
+//   .catch(function (error) {
+//     console.log(error);
+//   });
