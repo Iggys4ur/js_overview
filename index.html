@@ -1,27 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>JS Overview</title>
-  <link href="css/style.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
 </head>
+<body class="container">
+  
+  <select id="char-select">
+    <option value="people">People</option>
+    <option value="films">Films</option>
+    <option value="starships">Starships</option>
+    <option value="vehicles">Vehicles</option>
+    <option value="species">Species</option>
+    <option value="Planets">Planets</option>
+  </select>
 
-<body>
-  <h1>JS Overview</h1>
-  <div class="container">
-    <form class="form">
-      <input type="text" id="userInput" placeholder="Which City?" required>
-      <button type="click" class="request">Request</button>
-    </form>
-    <div class="output"></div>
+  <button id="search-btn">Search</button>
 
+  <div class="output">
+    <h3>Please use the search feature.</h3>
   </div>
-  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
-    crossorigin="anonymous"></script>
-  <script src="js/script.js">
-  </script>
-</body>
 
-</html>
+  <script src="js/script.js"></script>
+</body>
+</html> 
