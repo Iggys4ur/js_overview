@@ -11,7 +11,7 @@ function getCharacters() {
 
     fetch(url)
         .then(function (resObj) {
-            // Parsing the JSON data from the response body
+            // Parsing the JSON data from the response
             return resObj.json();
         })
         .then(function (data) {
